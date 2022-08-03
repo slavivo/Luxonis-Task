@@ -1,0 +1,4 @@
+Flask==2.2.0
+itemadapter==0.7.0
+psycopg2==2.9.3
+scrapy==2.6.2

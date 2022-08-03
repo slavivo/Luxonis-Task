@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Flats {% endblock %}</h1>
+    {% for flat in flats %}
+        <div class='book'>
+            <h3>#{{ flat[0] }} - {{ flat[1] }}</h3>
+        </div>
+    {% endfor %}
+{% endblock %}
