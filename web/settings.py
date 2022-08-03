@@ -1,5 +1,5 @@
 DATABASE = {
-    "host": "localhost",
+    "host": "database",
     "user": "postgres",
     "password": "password",
     "database": "flats",

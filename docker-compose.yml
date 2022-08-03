@@ -1,0 +1,37 @@
+version: '3'
+services:
+ web:
+  build: ./web
+  ports:
+   - 8080:8080
+  depends_on:
+   - database
+  environment:
+   - DATABASE_URL=postgresql://postgres:password@database:5432/flats
+ crawler:
+  build: ./crawler
+  ports:
+   - 6800:6800
+  depends_on:
+   - database
+  environment:
+   DB_HOST: database
+   DB_PORT: 5432
+   DB_USER: postgres
+   DB_PASSWORD: password
+   DN_NAME: flats
+ database: 
+  image: postgres:14.1-alpine
+  restart: always
+  environment:
+   - POSTGRES_USER=postgres
+   - POSTGRES_PASSWORD=password
+   - POSTGRES_DB=flats
+  ports:
+   - "5432:5432"
+  expose:
+   - "5432"
+  volumes:
+   - db:/var/lib/postgresql/data
+volumes:
+ db: {}

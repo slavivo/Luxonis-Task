@@ -22,7 +22,7 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 ROBOTSTXT_OBEY = False
 
 DATABASE = {
-    "host": "localhost",
+    "host": "database",
     "user": "postgres",
     "password": "password",
     "database": "flats",
