@@ -22,12 +22,12 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 ROBOTSTXT_OBEY = False
 
 DATABASE = {
-    "host": "database",
-    "user": "postgres",
-    "password": "password",
-    "database": "flats",
+    'host': 'database',
+    'user': 'postgres',
+    'password': 'password',
+    'database': 'flats',
 }
-LOG_LEVEL = "INFO"
+LOG_LEVEL = 'INFO'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32

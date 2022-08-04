@@ -11,7 +11,8 @@ from crawler.settings import DATABASE
 
 class CrawlerPipeline:
     insert = '''INSERT INTO flat(flat_name, flat_image) VALUES(%s, %s)'''
-    table = """ CREATE TABLE IF NOT EXISTS flat (
+    delete_table = '''DROP TABLE IF EXISTS flat'''
+    create_table = """ CREATE TABLE flat (
                 flat_name VARCHAR(50),
                 flat_image VARCHAR(250)
             )
@@ -20,7 +21,8 @@ class CrawlerPipeline:
     def __init__(self):
         self.conn = psycopg2.connect(**DATABASE)
         self.cur = self.conn.cursor()
-        self.cur.execute(self.table)
+        self.cur.execute(self.delete_table)
+        self.cur.execute(self.create_table)
 
     def process_item(self, item, spider):
         self.cur.execute(self.insert, (item['name'], item['image_url']))

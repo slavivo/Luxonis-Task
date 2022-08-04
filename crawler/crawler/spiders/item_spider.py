@@ -3,8 +3,8 @@ import json
 from crawler.items import CrawlerItem
 
 
-class UrlSpider(scrapy.Spider):
-    name = "url"
+class FlatSpider(scrapy.Spider):
+    name = 'flat_spider'
     start_urls = ['https://www.sreality.cz/hledani/prodej/byty']
     required_count = 500
     headers = {
